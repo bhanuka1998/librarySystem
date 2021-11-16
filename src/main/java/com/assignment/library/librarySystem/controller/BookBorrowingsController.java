@@ -24,7 +24,7 @@ public class BookBorrowingsController {
         bookBorrowingsService.deleteBookBorrowings(id);
     }
 
-    @RequestMapping("/getAllVideoReservations")
+    @RequestMapping("/getAllBookBorrowings")
     public List<BookBorrowings> getAllBookBorrowing(){
         return bookBorrowingsService.getAllBookBorrowings();
     }

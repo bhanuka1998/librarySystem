@@ -19,11 +19,23 @@ public class Books {
     @Column(name = "b_price", nullable = false)
     private Float bPrice;
 
-    @Column(name = "b_cat_id", nullable = false)
-    private Integer bCatId;
+    @ManyToOne(targetEntity = BookCategory.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "b_cat_id", referencedColumnName = "b_cat_id")
+    private BookCategory bookCategory;
 
     @Column(name = "no_of_copies", nullable = false)
     private Integer noOfCopies;
+
+    @Column(name = "b_image", nullable = false)
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public Integer getbID() {
         return bID;
@@ -57,12 +69,12 @@ public class Books {
         this.bPrice = bPrice;
     }
 
-    public Integer getbCatId() {
-        return bCatId;
+    public BookCategory getBookCategory() {
+        return bookCategory;
     }
 
-    public void setbCatId(Integer bCatId) {
-        this.bCatId = bCatId;
+    public void setBookCategory(BookCategory bookCategory) {
+        this.bookCategory = bookCategory;
     }
 
     public Integer getNoOfCopies() {
